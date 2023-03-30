@@ -1,14 +1,40 @@
+
+
+#!/usr/bin/python3
+
+""" Lockboxes """
+
+
 def canUnlockAll(boxes):
-    n = len(boxes)
-    visited = [False] * n
-    visited[0] = True
-    stack = [0]
+    """
+    - boxes is a list of lists
+    - A key with the same number as a box opens that box
+    - You can assume all keys will be positive integers
+    - The first box boxes[0] is unlocked
+    - Return True if all boxes can be opened, else return False
+    """
+    canUnlockAll = False
+    keys = {0: True}
+    n_boxes = len(boxes)
+    while (True):
 
-    while stack:
-        box = stack.pop()
-        for key in boxes[box]:
-            if key < n and not visited[key]:
-                visited[key] = True
-                stack.append(key)
+        n_keys = len(keys)
 
-    return all(visited)
+        # Check for keys per box
+        for i in range(len(boxes)):
+            if boxes[i] and keys.get(i, False):
+                for j in boxes[i]:
+                    if j < n_boxes:
+                        keys[j] = True
+                # Mark off checked boxes
+                boxes[i] = None
+
+        # Check that no extra boxes are opened since last iteration
+        if len(keys) <= n_keys:
+            break
+
+    # If all keys are found, then all boxes can open
+    if n_keys == len(boxes):
+        canUnlockAll = True
+
+    return canUnlockAll
