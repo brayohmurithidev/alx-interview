@@ -10,7 +10,7 @@ def minOperations(n):
     '''
     The function takes the least common factor of the given number
     '''
-    if(n < 2): 
+    if (n < 2):
         return 0
     factors = []
     divisor = 2
