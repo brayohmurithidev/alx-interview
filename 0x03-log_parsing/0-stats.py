@@ -6,6 +6,7 @@ It spits file size and number of status code occurences
 '''
 
 import re
+import sys
 
 format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
    r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
@@ -45,7 +46,7 @@ def display_output(statuses, sizes):
 '''The code sets a condition that needs to be met.'''
 try:
     while True:
-        name = input()
+        name = sys.stdin.readline()
         match = check_pattern_match(format_pattern, name)
         if match is not False:
             names.append(name)
