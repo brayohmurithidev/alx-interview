@@ -39,8 +39,9 @@ def display_output(statuses, sizes):
     print(f"File size: {sizes_sum}")
     my_set = set(statuses)
     for status in sorted(my_set):
-        occurence = statuses.count(status)
-        print(f'{status}: {occurence}')
+        if status == int:
+            occurence = statuses.count(status)
+            print(f'{status}: {occurence}')
 
 
 '''The code sets a condition that needs to be met.'''
