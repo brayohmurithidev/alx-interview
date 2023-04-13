@@ -1,1 +1,0 @@
-A Log parser - recieves user inputs, validits input format and outputs data.
