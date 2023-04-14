@@ -26,3 +26,29 @@ def readStdin():
     input_count = 0
     total_sizes = []
     status_codes = []
+
+
+    def check_pattern_match(pattern, userInput):
+        '''
+        The function checks user input against the pattern
+        '''
+        match = re.match(pattern, userInput)
+        if not match:
+            print('did not meet pattern')
+            return False
+        else:
+            total_size = match.group(4)
+            total_sizes.append(total_size)
+            status_code = match.group(3)
+            status_codes.append(status_code)
+
+
+    def display_output(statuses, sizes):
+        '''The function outputs size and status occurrences count'''
+        sizes = [int(i) for i in sizes]
+        sizes_sum = sum(sizes)
+        print(f"File size: {sizes_sum}")
+        my_set = set(statuses)
+        for status in sorted(my_set):
+            occurence = statuses.count(status)
+            print(f'{status}: {occurence}')
