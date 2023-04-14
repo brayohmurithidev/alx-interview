@@ -3,10 +3,12 @@
 '''
 A program that takes in standard input.
 It spits file size and number of status code occurences
+Sums up the file size after every 10 lines or keyboard interupt
 '''
 
 import re
 import sys
+
 
 format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
    r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
