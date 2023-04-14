@@ -28,28 +28,28 @@ def display_output(statuses, sizes):
         print(f'{status}: {occurence}')
 
 
-format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
-    r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
+# format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
+#     r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
 
-names = []
-input_count = 0
-total_sizes = []
-status_codes = []
+# names = []
+# input_count = 0
+# total_sizes = []
+# status_codes = []
 
-try:
-    while True:
-        name = sys.stdin.readline()
-        match = re.match(format_pattern, name)
-        if match:
-            names.append(name)
-            total_size = match.group(4)
-            total_sizes.append(total_size)
-            status_code = match.group(3)
-            status_codes.append(status_code)
-            input_count += 1
-            if input_count % 10 == 0:
-                display_output(status_codes, total_sizes)
+# try:
+#     while True:
+#         name = sys.stdin.readline()
+#         match = re.match(format_pattern, name)
+#         if match:
+#             names.append(name)
+#             total_size = match.group(4)
+#             total_sizes.append(total_size)
+#             status_code = match.group(3)
+#             status_codes.append(status_code)
+#             input_count += 1
+#             if input_count % 10 == 0:
+#                 display_output(status_codes, total_sizes)
 
-except KeyboardInterrupt:
-    display_output(status_codes, total_sizes)
-    raise
+# except KeyboardInterrupt:
+#     display_output(status_codes, total_sizes)
+#     raise
