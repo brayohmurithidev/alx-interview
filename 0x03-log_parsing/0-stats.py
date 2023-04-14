@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 
-'''
-A program that takes in standard input.
-It spits file size and number of status code occurences
-Sums up the file size after every 10 lines or keyboard interupt
-'''
+"""Program that takes in stdin and reads it line
+by line.
+
+Keyword arguments:
+pattern -- takes in the pattern string
+user_input -- takes in the user input string
+Return: returns a boleen incase of a match either true or false
+"""
 
 import re
 import sys
@@ -32,6 +35,7 @@ def check_pattern_match(pattern, userInput):
         total_sizes.append(total_size)
         status_code = match.group(3)
         status_codes.append(status_code)
+        return True
 
 
 def display_output(statuses, sizes):
