@@ -44,4 +44,6 @@ def readStdin():
         raise
 
 
-# readStdin()
+if __name__ == '__main__':
+    result = readStdin()
+    print(result)

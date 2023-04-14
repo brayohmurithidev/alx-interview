@@ -58,7 +58,7 @@ def mainFun():
     '''The code sets a condition that needs to be met.'''
     try:
         while True:
-            name = sys.stdin.readline()
+            name = sys.stdin.readlines()
             match = check_pattern_match(format_pattern, name)
             if match is not False:
                 names.append(name)
