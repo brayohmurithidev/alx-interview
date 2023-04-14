@@ -35,7 +35,6 @@ def check_pattern_match(pattern, userInput):
         total_sizes.append(total_size)
         status_code = match.group(3)
         status_codes.append(status_code)
-        return True
 
 
 def display_output(statuses, sizes):
@@ -45,9 +44,8 @@ def display_output(statuses, sizes):
     print(f"File size: {sizes_sum}")
     my_set = set(statuses)
     for status in sorted(my_set):
-        if status == int:
-            occurence = statuses.count(status)
-            print(f'{status}: {occurence}')
+        occurence = statuses.count(status)
+        print(f'{status}: {occurence}')
 
 
 '''The code sets a condition that needs to be met.'''
