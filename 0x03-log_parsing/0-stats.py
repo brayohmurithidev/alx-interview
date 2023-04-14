@@ -41,6 +41,7 @@ def readStdin():
 
     except KeyboardInterrupt:
         print(names)
+        raise
 
 
-readStdin()
+# readStdin()
