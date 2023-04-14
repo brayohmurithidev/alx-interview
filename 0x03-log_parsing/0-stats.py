@@ -36,8 +36,6 @@ input_count = 0
 total_sizes = []
 status_codes = []
 
-
-'''The code sets a condition that needs to be met.'''
 try:
     while True:
         name = sys.stdin.readline()
