@@ -17,33 +17,41 @@ and output the results.
 import re
 import sys
 
+def display_output(statuses, sizes):
+    '''The function outputs size and status occurrences count'''
+    sizes = [int(i) for i in sizes]
+    sizes_sum = sum(sizes)
+    print(f"File size: {sizes_sum}")
+    my_set = set(statuses)
+    for status in sorted(my_set):
+        occurence = statuses.count(status)
+        print(f'{status}: {occurence}')
 
-def readStdin():
-    '''Main function'''
-    format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
+
+format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
     r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
-    names = []
-    input_count = 0
-    total_sizes = []
-    status_codes = []
 
-    try:
-        while True:
-            url = sys.stdin.readline()
-            match = re.match(format_pattern, url)
-            if match:
-                 names.append(url)
-                 input_count += 1
-                 if input_count % 10 == 0:
-                     print(names)
+names = []
+input_count = 0
+total_sizes = []
+status_codes = []
 
 
+'''The code sets a condition that needs to be met.'''
+try:
+    while True:
+        name = sys.stdin.readline()
+        match = re.match(format_pattern, name)
+        if match:
+            names.append(name)
+            total_size = match.group(4)
+            total_sizes.append(total_size)
+            status_code = match.group(3)
+            status_codes.append(status_code)
+            input_count += 1
+            if input_count % 10 == 0:
+                display_output(status_codes, total_sizes)
 
-    except KeyboardInterrupt:
-        print(names)
-        raise
-
-
-if __name__ == '__main__':
-    result = readStdin()
-    print(result)
+except KeyboardInterrupt:
+    display_output(status_codes, total_sizes)
+    raise
