@@ -18,7 +18,9 @@ import re
 import sys
 
 def displayOutput(statuses, sizes):
-    '''The function outputs size and status occurrences count'''
+    '''
+    The function outputs size and status occurrences count
+    '''
     sizes = [int(i) for i in sizes]
     sizes_sum = sum(sizes)
     print(f"File size: {sizes_sum}")
