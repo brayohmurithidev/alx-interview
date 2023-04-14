@@ -18,5 +18,11 @@ import re
 import sys
 
 
-def mainFun():
+def readStdin():
     '''Main function'''
+    format_pattern = r'^(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] '\
+    r'"GET /projects/\d+ HTTP/1\.1" (\d+) (\d+)$'
+    names = []
+    input_count = 0
+    total_sizes = []
+    status_codes = []
