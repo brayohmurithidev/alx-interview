@@ -17,7 +17,7 @@ and output the results.
 import re
 import sys
 
-def display_output(statuses, sizes):
+def displayOutput(statuses, sizes):
     '''The function outputs size and status occurrences count'''
     sizes = [int(i) for i in sizes]
     sizes_sum = sum(sizes)
